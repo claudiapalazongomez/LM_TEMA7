@@ -1,0 +1,38 @@
+Ejercicio 1:
+for $d in //title/text()
+return <titulo>{$d/text()}</titulo>
+
+Ejercicio 2:
+for $d in //book
+where $d/price <= 30
+return $d
+
+Ejercicio 3:
+for $d in //book
+where $d/price <= 30
+return $d/title
+
+Ejercicio 4:
+for $d in //book[price<=30]/title/text()
+return <title>{$d}</title>
+
+Ejercicio 5:
+for $d in //book
+where $d/year=2005
+return <lib2005>{$d/title,",",$d/author}</lib2005>
+
+Ejercicio 6:
+for $d in //book/year
+return <publicacion>{$d}</publicacion>
+
+let $d := //book/year
+return <publicacion>{$d}</publicacion>
+
+Ejercicio 7:
+for $d in //book
+order by $d/@category,$d/title
+return $d
+
+Ejercicio 8:
+for $d in count(//book)
+return <total>{$d}</total>
